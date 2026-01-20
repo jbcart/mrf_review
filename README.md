@@ -10,10 +10,12 @@ with a constant external field (i.e., $\alpha = C$, where $C$ is a constant).
 
 ./mc_mrf_stats.jl N ALPHA CODING NSIM
 
-N       - The number of rows in an NxN first-order lattice.
-ALPHA   - The value of the external field parameter $\alpha$.
-CODING  - The formulation of the MRF, can be "autologistic", "ising", or "ising-physics".
-NSIM    - The number of Monte Carlo simulations for each value of $\psi$. 
+| Parameter | Description
+| --- | ---
+| N       | The number of rows in an NxN first-order lattice.
+| ALPHA   | The value of the external field parameter $\alpha$.
+| CODING  | The formulation of the MRF, can be "autologistic", "ising", or "ising-physics".
+| NSIM    | The number of Monte Carlo simulations for each value of $\psi$. 
 
 The command to generate the response functions in the paper is:
 
@@ -40,13 +42,13 @@ $\beta_1$ are distributed normal, cauchy, or $t_7$ with scale parameter $\sigma$
 | ADJ     | An adjustment to the gradient of covariates (the $a$ in $x_i+a$ above).
 | BETA    | The location parameter for the prior on $\beta_0$ and $\beta_1$.
 | SD      | The scale parameter for the prior on $\beta_0$ and $\beta_1$.
-| SCHEME  | A string tag to indicate the prior on $\beta$  (cauchy, t7 or, norm) and whether to include an intercept (int) in the model for the external field. For example "int_norm" will include an intercept $\beta_0$ (e.g., $\alpha_i = \beta_0 + (x_i+a)\beta_1$) and $\beta \sim \mathrm{norm}(\text{BETA}, \text{SD})$.
+| SCHEME  | A string tag to indicate the prior on $\beta$  ("cauchy", "t7" or, "norm") and whether to include an intercept (int) in the model for the external field. For example "int_norm" will include an intercept $\beta_0$ (e.g., $\alpha_i = \beta_0 + (x_i+a)\beta_1$) and $\beta \sim \mathrm{norm}(\text{BETA}, \text{SD})$.
 
 The commands to generate the prior predictive response functions in the paper are:
 
-./mc_mrf_grad.jl 2000 64 ising 0.0 0.0 1.0 int_norm
-./mc_mrf_grad.jl 2000 64 autologistic 0.0 0.0 1.0 int_norm
-./mc_mrf_grad.jl 2000 64 centered-auto 0.0 0.0 1.0 int_norm
+./mc_mrf_grad.jl 2000 64 ising 0.0 0.0 1.0 int_norm  
+./mc_mrf_grad.jl 2000 64 autologistic 0.0 0.0 1.0 int_norm  
+./mc_mrf_grad.jl 2000 64 centered-auto 0.0 0.0 1.0 int_norm  
 
 \**Note: the above executable files specify the number of threads for julia to use in the shebang line*
 
