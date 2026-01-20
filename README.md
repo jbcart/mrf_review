@@ -32,16 +32,16 @@ $\beta_1$ are distributed normal, cauchy, or $t_7$ with scale parameter $\sigma$
 
 ./mc_mrf_stats.jl NSIM N CODING ADJ BETA SD SCHEME
 
-NSIM    - The number of Monte Carlo simulations for each value of $\psi$.
-N       - The number of rows in an NxN first-order lattice.
-CODING  - The formulation of the MRF, can be "autologistic", "ising", or "centered-auto".
-ADJ     - An adjustment to the gradient of covariates (the $a$ in $x_i+a) above).
-BETA    - The location parameter for the prior on $\beta_0$ and $\beta_1$.
-SD      - The scale parameter for the prior on $\beta_0$ and $\beta_1$.
-SCHEME  - A string tag to indicate the prior on $\beta$  (cauchy, t7 or, norm) and whether to
-          include an intercept (int) in the model for the external field. For example "int_norm"
-          will include an intercept $\beta_0$ (e.g., $\alpha_i = \beta_0 + (x_i+a)\beta_1$) and 
-          $\beta \sim \mathrm{norm}(\text{BETA}, \text{SD})$. 
+| NSIM    | The number of Monte Carlo simulations for each value of $\psi$.                        |
+| N       | The number of rows in an NxN first-order lattice.                                      |
+| CODING  | The formulation of the MRF, can be "autologistic", "ising", or "centered-auto".        |
+| ADJ     | An adjustment to the gradient of covariates (the $a$ in $x_i+a$ above).                | 
+| BETA    | The location parameter for the prior on $\beta_0$ and $\beta_1$.                       | 
+| SD      | The scale parameter for the prior on $\beta_0$ and $\beta_1$.                          |
+| SCHEME  | A string tag to indicate the prior on $\beta$  (cauchy, t7 or, norm) and whether to
+            include an intercept (int) in the model for the external field. For example "int_norm"
+            will include an intercept $\beta_0$ (e.g., $\alpha_i = \beta_0 + (x_i+a)\beta_1$) and 
+            $\beta \sim \mathrm{norm}(\text{BETA}, \text{SD})$.                                    |
 
 The commands to generate the prior predictive response functions in the paper are:
 
