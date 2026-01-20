@@ -27,11 +27,12 @@ The following executable file can be run to obtain Monte Carlo estimates of a se
 functons for $\psi \in \{0.0, 0.03, 0.03, \dots, 1.7\}$ for the autologistic, centered-autologistic 
 and Ising model with an external field of covariates $x_i=(r(i)+c(i)-n_r-1)/(n_r-1)$,
 where $r(i)$ returns the row of areal unit $i$, $c(i)$ returns the column, and $n_r=64$, the number
-of rows/columns. The external field is given by $\alpha_i = \beta_0 + (x_i+a)\beta_1$ and $\beta_0$
+of rows/columns. The external field is given by $\alpha_i = \beta_0 + (x_i+a)\beta_1$ and $\beta_0$, 
 $\beta_1$ are distributed normal, cauchy, or $t_7$ with scale parameter $\sigma$ and location $\mu$. 
 
 ./mc_mrf_stats.jl NSIM N CODING ADJ BETA SD SCHEME
 
+| Parameter | Description
 | --- | ---
 | NSIM    | The number of Monte Carlo simulations for each value of $\psi$.
 | N       | The number of rows in an NxN first-order lattice.
