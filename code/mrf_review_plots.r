@@ -1,7 +1,7 @@
 # Simulation Study results
 library(tidyverse)
 library(patchwork)
-source("mcmc_functions.r")
+# source("mcmc_functions.r")
 
 
 # Response Functions Plot
@@ -49,7 +49,7 @@ h_rf <- h * 1.5
 w_rf <- w * 1.5
 h_rf_long <- h_rf * 1.5
 
-ggsave("figures_mrf_review/p_response_functions_ising_alpha_0.png",
+ggsave("figures/p_response_functions_ising_alpha_0.png",
   p_prf_alpha_0,
   height = h_rf, width = w_rf
 )
@@ -70,15 +70,15 @@ p_covariates <- ggplot() +
     panel.background = element_blank(), panel.border = element_rect(color = "gray", fill = NA)
   ) +
   labs(fill = "x")
-ggsave("figures_mrf_review/p_covariates.png", p_covariates, height = 4, width = 5)
+ggsave("figures/p_covariates.png", p_covariates, height = 4, width = 5)
 
 
 # Prior predictive response functions for the MRF with covariates
 # Function to generate dataframe for plotting
 generate_pprf_df <- function(tag) {
-  autol <- read.csv(paste0("mrf_sim_out/grad_autol_n64", tag))
-  ising <- read.csv(paste0("mrf_sim_out/grad_ising_n64", tag))
-  cente <- read.csv(paste0("mrf_sim_out/grad_cente_n64", tag))
+  autol <- read.csv(paste0("output/grad_autol_n64", tag))
+  ising <- read.csv(paste0("output/grad_ising_n64", tag))
+  cente <- read.csv(paste0("output/grad_cente_n64", tag))
   autol$Formulation <- "Autologistic"
   ising$Formulation <- "Ising"
   cente$Formulation <- "Centered Autol."
@@ -156,4 +156,4 @@ p_int_norm <- generate_pprf_plot(
   #expression(Centered ~ Covariates * "," ~ bold(beta) ~ "~" ~ N(0, 1))
 )
 # p_int_norm
-ggsave("figures_mrf_review/p_prior_predictive_response_functions_int_norm.png", p_int_norm, height = h_rf_long, width = w_rf)
+ggsave("figures/p_prior_predictive_response_functions_int_norm.png", p_int_norm, height = h_rf_long, width = w_rf)
