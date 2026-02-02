@@ -1,4 +1,4 @@
-#!/usr/bin/env -S julia --threads=8
+#!/usr/bin/env -S julia --threads=8 --project=.
 
 if !(length(ARGS) ∈ [7])
 	error("Incorrect number of arguments.

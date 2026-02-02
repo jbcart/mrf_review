@@ -1,4 +1,4 @@
-#!/usr/bin/env -S julia --threads=8
+#!/usr/bin/env -S julia --threads=8 --project=.
 
 if length(ARGS) != 4
 	error("Incorrect number of arguments.
@@ -73,7 +73,7 @@ for p ∈ ProgressBar(eachindex(psis))
 # 			 	"_p" * replace(string(psis[p]), "." => "_") *
 # 				"_a" * replace(string(α), "." => "_") * ".csv"
 # 			CSV.write(name, df)
-		end
+#       end
 	end
 
 	eT1[p] = mean(T1)
